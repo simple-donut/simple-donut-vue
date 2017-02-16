@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Donut - Vue.js</title>
+    <link rel="stylesheet" href="_styles/style.css" type="text/css">
+    <link rel="stylesheet" href="_styles/simple-donut.css" type="text/css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script type="text/javascript">
+      if (typeof Vue == 'undefined') {
+        document.write(unescape("%3Cscript src='_scripts/vue-2.1.10.min.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script> <!-- Load local jQuery if Google CDN is unreachable -->
+  </head>
+  <body>
+
+    <div id="donutchart">
+      <div class="donut-size">
+        <div v-bind:class="[donut ? 'donut-graph' : 'pie-graph', 'pie-wrapper']">
+          <span class="label">
+              <span>{{percent}}</span><span class="smaller">%</span>
+          </span>
+          <div class="pie" v-bind:style="{clip: pie}">
+            <div class="left-side half-circle" v-bind:style="{transform: leftside}"></div>
+            <div class="right-side half-circle" v-bind:style="{transform: rightside}"></div>
+          </div>
+          <div class="shadow"></div>
+        </div>
+      </div>
+
+      <div id="controls">
+        <input v-model="percent" type="number">
+        <input v-model="percent" type="range">
+        <label>
+          <input v-model="donut" type="checkbox">
+          <span v-if="donut">Donut</span>
+          <span v-else>Pie</span>
+        </label>
+      </div>
+    </div>
+
+    <p>
+      In your console run <code>updateDonutChart(89, true);</code>
+    </p>
+
+    <script type="text/javascript" src="_scripts/simple-donut-vue.js"></script>
+    <script>
+      updateDonutChart(66.7, true);
+    </script>
+  </body>
+</html>
