@@ -308,3 +308,30 @@ p {
 code {
   color: #1ABC9C;
 }
+
+
+
+
+
+
+
+#controls {
+  padding-top: 10px;
+  font-family: sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+#controls input {
+  display: block;
+  margin: 20px auto 0px;
+}
+#controls input[type="number"] {
+  font-size: 1em;
+  width: 125px;
+  text-align: center;
+}
+#controls input[type="checkbox"] {
+  display: inline;
+  width: 1.4em;
+  height: 1.4em;
+}
