@@ -2,11 +2,11 @@
     <div class="donut-size">
         <div :class="[donut ? 'donut-graph' : 'pie-graph', 'pie-wrapper']">
             <span class="label">
-                <span>{{percent}}</span><span class="smaller">%</span>
+                <span>{{ percent }}</span><span class="smaller">%</span>
             </span>
             <div class="pie" :style="{clip: pie}">
-                <div class="left-side half-circle" :style="{transform: leftside}"></div>
-                <div class="right-side half-circle" :style="{transform: rightside}"></div>
+                <div class="left-side half-circle" :style="{'transform': leftside}"></div>
+                <div class="right-side half-circle" :style="{'transform': rightside}"></div>
             </div>
             <div class="shadow"></div>
         </div>
@@ -15,19 +15,24 @@
 
 <script>
 module.exports = {
-    data: function () {
-        return {
-            'donut': true,
-            'percent': 50
-        };
+    props: {
+        donut: {
+            type: Boolean,
+            required: false,
+            default: true
+        },
+        'percent': {
+            type: Number,
+            required: false,
+            default: 0
+        }
     },
     watch: {
-        'percent': function () {
-            // Restricte range of acceptable percents to whole numbers between 0-100
-            var wholeNumberValue = Math.round(this.percent);
-            var restrictedUpperValue = Math.min(wholeNumberValue, 100);
-            var restrictedLowerValue = Math.max(restrictedUpperValue, 0);
-            this.percent = restrictedLowerValue;
+        percent: function () {
+            var forWholeNumber = Math.round(this.percent);
+            var restrictUpperLimit = Math.min(forWholeNumber, 100);
+            var restrictLowerLimit = Math.max(restrictUpperLimit, 0);
+            this.percent = restrictLowerLimit;
         }
     },
     computed: {
@@ -82,7 +87,7 @@ module.exports = {
         left: 0px;
         width: 100%;
         height: 100%;
-        border: 0.1em solid #1abc9c;
+        border: 0.1em solid #1ABC9C;
         border-radius: 50%;
         clip: rect(0em, 0.5em, 1em, 0em);
         box-sizing: border-box;
@@ -99,12 +104,17 @@ module.exports = {
         display: block;
         background: none;
         border-radius: 50%;
-        color: #7F8C8D;
         font-size: 0.25em;
         line-height: 2.6em;
         text-align: center;
         cursor: default;
         z-index: 2;
+    }
+    .donut-graph .label {
+        color: #7F8C8D;
+    }
+    .pie-graph .label {
+        color: #50676D;
     }
     .pie-wrapper .smaller {
         padding-bottom: 20px;

@@ -3,17 +3,11 @@
   <head>
     <title>Simple Donut - Vue.js</title>
     <link rel="stylesheet" href="_styles/style.css" type="text/css">
-    <link rel="stylesheet" href="_styles/simple-donut.css" type="text/css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
-    <script type="text/javascript">
-      if (typeof Vue == 'undefined') {
-        document.write(unescape("%3Cscript src='_scripts/vue-2.1.10.min.js' type='text/javascript'%3E%3C/script%3E"));
-      }
-    </script> <!-- Load local jQuery if Google CDN is unreachable -->
   </head>
   <body>
 
-      <simple-donut></simple-donut>
+    <div id="app">
+      <simple-donut :percent="percent" :donut="donut"></simple-donut>
 
       <div id="controls">
         <input v-model="percent" type="number">
@@ -26,13 +20,8 @@
       </div>
     </div>
 
-    <p>
-      In your console run <code>updateDonutChart(89, true);</code>
-    </p>
-
-    <script type="text/javascript" src="_scripts/simple-donut-vue.js"></script>
-    <script>
-      updateDonutChart(66.7, true);
-    </script>
+    <script type="text/javascript" src="node_modules/vue/dist/vue.min.js"></script>
+    <script type="text/javascript" src="node_modules/http-vue-loader/src/httpVueLoader.js"></script>
+    <script type="text/javascript" src="_scripts/app.js"></script>
   </body>
 </html>
