@@ -1,3 +1,3 @@
 # simple-donut-vue
 
-* [CodePen example](https://codepen.io/TheJaredWilcurt/pen/apXgyp)
+* [CodeSandbox example](https://codesandbox.io/s/5zv99qyklp)
