@@ -15,6 +15,7 @@
 
 <script>
 module.exports = {
+    name: 'SimpleDonut',
     props: {
         donut: {
             type: Boolean,
