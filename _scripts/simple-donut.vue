@@ -5,8 +5,8 @@
                 <span>{{ percent }}</span><span class="smaller">%</span>
             </span>
             <div class="pie" :style="{clip: pie}">
-                <div class="left-side half-circle" :style="{'transform': leftside}"></div>
-                <div class="right-side half-circle" :style="{'transform': rightside}"></div>
+                <div class="left-side half-circle" :style="{ 'transform': leftside }"></div>
+                <div class="right-side half-circle" :style="{ 'transform': rightside }"></div>
             </div>
             <div class="shadow"></div>
         </div>
@@ -21,7 +21,7 @@ module.exports = {
             required: false,
             default: true
         },
-        'percent': {
+        percent: {
             type: Number,
             required: false,
             default: 0
@@ -36,19 +36,19 @@ module.exports = {
         }
     },
     computed: {
-        'pie': function () {
+        pie: function () {
             var pie = 'rect(0, 1em, 1em, 0.5em)';
             if (Math.round(this.percent) > 50) {
                 pie = 'rect(auto, auto, auto, auto)';
             }
             return pie;
         },
-        'leftside': function () {
+        leftsid': function () {
             var degrees = Math.round(360 * (this.percent / 100));
             var rotation = 'rotate(' + degrees + 'deg)';
             return rotation;
         },
-        'rightside': function () {
+        rightside: function () {
             var rotation = 'rotate(0deg)';
             if (Math.round(this.percent) > 50) {
                 rotation = 'rotate(180deg)';
