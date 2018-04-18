@@ -43,7 +43,7 @@ module.exports = {
             }
             return pie;
         },
-        leftsid': function () {
+        leftside: function () {
             var degrees = Math.round(360 * (this.percent / 100));
             var rotation = 'rotate(' + degrees + 'deg)';
             return rotation;
