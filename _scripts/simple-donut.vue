@@ -1,10 +1,10 @@
 <template>
     <div class="donut-size">
-        <div :class="[donut ? 'donut-graph' : 'pie-graph', 'pie-wrapper']">
+        <div :class="donut ? 'donut-graph' : 'pie-graph'" class="pie-wrapper">
             <span class="label">
                 <span>{{ percent }}</span><span class="smaller">%</span>
             </span>
-            <div class="pie" :style="{clip: pie}">
+            <div class="pie" :style="{ clip: pie }">
                 <div class="left-side half-circle" :style="{ 'transform': leftside }"></div>
                 <div class="right-side half-circle" :style="{ 'transform': rightside }"></div>
             </div>
