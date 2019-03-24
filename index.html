@@ -31,13 +31,13 @@
 
     <div id="donutchart">
       <div class="donut-size">
-        <div v-bind:class="[donut ? 'donut-graph' : 'pie-graph', 'pie-wrapper']">
+        <div :class="donut ? 'donut-graph' : 'pie-graph'" class="pie-wrapper">
           <span class="label">
-              <span>{{percent}}</span><span class="smaller">%</span>
+              <span>{{ percent }}</span><span class="smaller">%</span>
           </span>
-          <div class="pie" v-bind:style="{clip: pie}">
-            <div class="left-side half-circle" v-bind:style="{transform: leftside}"></div>
-            <div class="right-side half-circle" v-bind:style="{transform: rightside}"></div>
+          <div class="pie" :style="{ clip: pie }">
+            <div class="left-side half-circle" :style="{ transform: leftside }"></div>
+            <div class="right-side half-circle" :style="{ transform: rightside }"></div>
           </div>
           <div class="shadow"></div>
         </div>
